@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <h1>Melhores Membros por Skill</h1>
+  <a href="/">Voltar</a><br/><br/>
+
+  <h1>Melhor de todos</h1>
+  {% with user = best_of_all %}{% include "user.html" %}{% endwith %}
+  <h1>Melhor Back-end</h1>
+  {% with user = back_ender %}{% include "user.html" %}{% endwith %}
+  <h1>Melhor Front-end</h1>
+  {% with user = front_ender %}{% include "user.html" %}{% endwith %}
+  <h1>Melhor Talker</h1>
+  {% with user = talker %}{% include "user.html" %}{% endwith %}
+  <h1>Melhor Channeler</h1>
+  {% with user = channeler %}{% include "user.html" %}{% endwith %}
+  <h1>Melhor Sharer</h1>
+  {% with user = sharer %}{% include "user.html" %}{% endwith %}
+{% endblock body %}

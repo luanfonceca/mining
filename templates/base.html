@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="{{ url_for('static', filename='radar.js') }}"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+  </head>
+  <body>
+    {% block body %}{% endblock body %}
+
+    <script type="text/javascript">
+      $(function(){
+        $.each($('.chart'), function () {
+          var self = $(this);
+
+          var chartCategories = [
+            'Back-end',
+            'Front-end',
+            'Commiter',
+            'Abriu issues',
+            'Setuper',
+            'Talker',
+            'Channeler',
+            'Sharer',
+          ];
+          var chartData = [
+            parseFloat($(self).attr('back_end')),
+            parseFloat($(self).attr('front_end')),
+            parseFloat($(self).attr('commiter')),
+            parseFloat($(self).attr('opened_issues')),
+            parseFloat($(self).attr('setuper')),
+            parseFloat($(self).attr('talker')),
+            parseFloat($(self).attr('channeler')),
+            parseFloat($(self).attr('links_shared')),
+          ];
+          $(self).highcharts({
+            chart: {
+              polar: true,
+              type: 'area',
+
+            },
+            title: {
+              text: 'Skills',
+            },
+            pane: {
+              size: '80%'
+            },
+            xAxis: {
+              categories: chartCategories,
+              tickmarkPlacement: 'on',
+              lineWidth: 0
+            },
+            yAxis: {
+              gridLineInterpolation: 'polygon',
+              lineWidth: 0,
+              min: 0,
+              max: 10
+            },
+            tooltip: {
+              shared: true,
+              pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.1f}</b><br/>',
+            },
+            legend: {
+              enabled: false
+            },
+            series: [{
+              name: 'Skill value',
+              data: chartData,
+              pointPlacement: 'on',
+              color: 'black'
+            }]
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

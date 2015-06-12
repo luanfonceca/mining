@@ -1,0 +1,34 @@
+<h2>Detalhe: <a href="/detail/{{ user.get('_user') }}">@{{ user.get('_user') }}</a></h2>
+<hr>
+
+{% set back_end = user.get('back_end') and user.get('back_end')|log|round(1, 'floor') or 0 %}
+{% set front_end = user.get('front_end') and user.get('front_end')|log|round(1, 'floor') or 0 %}
+{% set opened_issues = user.get('opened_issues') and user.get('opened_issues')|log|round(1, 'floor') or 0 %}
+{% set setuper = user.get('setuper') and user.get('setuper')|log|round(1, 'floor') or 0 %}
+{% set commiter = user.get('commiter') and user.get('commiter')|log|round(1, 'floor') or 0 %}
+{% set talker = user.get('talker') and user.get('talker')|log|round(1, 'floor') or 0 %}
+{% set channeler = user.get('channeler') and user.get('channeler')|log|round(1, 'floor') or 0 %}
+{% set links_shared = user.get('links_shared') and user.get('links_shared')|log|round(1, 'floor') or 0 %}
+
+<h3>
+  Back-end: {{ back_end }} <small>({{ user.get('back_end', 0) }})</small><br/>
+  Front-end: {{ front_end }} <small>({{ user.get('front_end', 0) }})</small><br/>
+  Abriu issues: {{ opened_issues }} <small>({{ user.get('opened_issues', 0) }})</small><br/>
+  Setuper: {{ setuper }} <small>({{ user.get('setuper', 0) }})</small><br/>
+  Commiter: {{ commiter }} <small>({{ user.get('commiter', 0) }})</small><br/>
+  Talker: {{ talker }} <small>({{ user.get('talker', 0) }})</small><br/>
+  Channeler: {{ channeler }} <small>({{ user.get('channeler', 0) }})</small><br/>
+  Sharer: {{ links_shared }} <small>({{ user.get('links_shared', 0) }})</small><br/>
+</h3>
+
+<div class="chart" 
+     back_end="{% if not user.get('back_end') %}0{% else %}{{ user.get('back_end')|log|round(1, 'floor') }}{% endif %}"
+     front_end="{% if not user.get('front_end') %}0{% else %}{{ user.get('front_end')|log|round(1, 'floor') }}{% endif %}"
+     opened_issues="{% if not user.get('opened_issues') %}0{% else %}{{ user.get('opened_issues')|log|round(1, 'floor') }}{% endif %}"
+     setuper="{% if not user.get('setuper') %}0{% else %}{{ user.get('setuper')|log|round(1, 'floor') }}{% endif %}"
+     commiter="{% if not user.get('commiter') %}0{% else %}{{ user.get('commiter')|log|round(1, 'floor') }}{% endif %}"
+     talker="{% if not user.get('talker') %}0{% else %}{{ user.get('talker')|log|round(1, 'floor') }}{% endif %}"
+     channeler="{% if not user.get('channeler') %}0{% else %}{{ user.get('channeler')|log|round(1, 'floor') }}{% endif %}"
+     links_shared="{% if not user.get('links_shared') %}0{% else %}{{ user.get('links_shared')|log|round(1, 'floor') }}{% endif %}"></div>
+<hr>
+<br>

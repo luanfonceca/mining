@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <h1>Membros</h1>
+  <a href="/users_by_skills">Melhores Membros por Skill</a>
+  <hr>
+
+  {% for user in users %}
+    {% include "user.html" with context %}
+  {% endfor %}
+{% endblock body %}

@@ -1,0 +1,28 @@
+AUTH = ('<GITHUB_USERNAME>', '<GITHUB_PASSWORD>')
+
+DATABASE_NAME = 'mining'
+
+REPO_NAMES = ['<GITHUB_REPOSITORY_NAMES>']
+
+EXCLUDED_USERS = ['<GITHUB_USERNAMES>']
+
+SLACK_USERS = {
+    '<GITHUB_USERNAME>': '<SLACK_USERNAME>',
+}
+
+REPOS_URL = 'https://api.github.com/orgs/<GITHUB_ORGANIZATION>/repos'
+
+ISSUES_URL = ('https://api.github.com/repos/<GITHUB_ORGANIZATION>/'
+              '{repo}/issues?state=all&filter=all')
+
+EVENTS_URL = ('https://api.github.com/repos/<GITHUB_ORGANIZATION>/'
+              '{repo}/issues/{number}/events')
+
+COMMITS_URL = ('https://api.github.com/repos/<GITHUB_ORGANIZATION>/'
+               '{repo}/commits')
+
+BACK_END_QUERIES = ['<BACK_END_FOLDERS_OR_FILES>']
+
+FRONT_END_QUERIES = ['<FRONT_END_FOLDERS_OR_FILES>']
+
+SETUPER_QUERIES = ['SETUPER_FOLDER_OR_FILES']
