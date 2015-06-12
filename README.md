@@ -1,6 +1,8 @@
 # mining
 Python mining script to grap data from Github and Slack, save in mongodb and shows a Radar chart using hightchart.
 
+![Resultado da mineração](mining.png?raw=true "Resultado da mineração")
+
 # Before install
 - MongoDB
 - Python
